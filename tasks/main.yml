@@ -1,0 +1,10 @@
+---
+# tasks file for ansible_role_swapoff
+- name: turn swap off
+  command: swapoff -a
+
+- name: remove swap from fstab
+  lineinfile:
+    dest: /etc/fstab
+    regexp: swap
+    state: absent
